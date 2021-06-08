@@ -1,11 +1,15 @@
+import { Wrapper } from './SearchBarStyle';
+
 export default function SearchBar() {
     return (
-        <div>
+        <Wrapper>
             <input 
                 type="search" 
                 id="search" 
+                autofocus="true"
                 name="search" 
-                placeholder="Type here what do you want to watch"/>
-        </div>
+                placeholder="Search by ..."/>
+                <button>Search</button>
+        </Wrapper>
     )
 }
