@@ -8,3 +8,9 @@ export const Main = styled.main`
     position: relative;
     padding: 24px;
 `
+
+export const Center = styled.div`
+    display: flex;
+    align-items: center;
+    justify: center;
+`

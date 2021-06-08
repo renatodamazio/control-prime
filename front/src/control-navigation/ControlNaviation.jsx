@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { MainControl } from './ControlNaviationStyles';
 
 export default function ControlNaviation() {
     const [directions, setDirections] = useState([]);
@@ -23,11 +24,13 @@ export default function ControlNaviation() {
     }, []);
 
     return (
-        <div>
+        <MainControl>
+            <button className="select-option">Select</button>
            {
                directions.map((direction) => {
                     return (
-                        <button 
+                        <button
+                            className={direction.id} 
                             name={direction.name} 
                             id={direction.id} 
                             key={direction.id}>
@@ -36,6 +39,6 @@ export default function ControlNaviation() {
                     )  
                })
            }
-        </div>
+        </MainControl>
     )
 }
