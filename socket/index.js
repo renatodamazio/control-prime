@@ -1,17 +1,18 @@
-const express = require('express');
-const app = express();
-const httpServer = require("http").createServer();
+const express = require("express"),
+    app = express(),
+    http = require("http"),
+    server = http.createServer(app),
+    { Server } = require("socket.io"),
+    io = new Server(server);
 
-app.get('/', (req, res) => {
-    res.send("Api rolling");
+app.get("/", (req, res) => {
+    res.json("ControlPrime Socket on!")
 });
 
-app.get('/up', (req, res) => {
-    const io = require("socket.io")(httpServer, {
-
-    })
+io.on('connection', (socket) => {
+    console.log("a user connected.");
 });
 
-app.listen(8080);
-
-console.log("Express server rolling...")
+server.listen(process.env.PORT || 8080, () => {
+    console.log("Server working ...")
+});
