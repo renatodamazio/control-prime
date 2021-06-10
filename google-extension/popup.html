@@ -10,7 +10,8 @@
 <body>
     <h1>Pronto para receber o sinal.</h1>
     <script>
-        const socket = io("https://example.com");
+        const socket = io('http://localhost:8080/');
+        socket.emit("bus-event", "Yeah baby!!");
     </script>
 </body>
 </html>
