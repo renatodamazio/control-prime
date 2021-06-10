@@ -1,0 +1,15 @@
+{
+    "manifest_version": 2,
+    "name": "PrimeControl",
+    "description": "Control navigation from Prime Video by your cellphone",
+    "version": "1.0",
+
+    "browser_action": {
+        "default_action": "icon.png",
+        "default_popup": "popup.html"
+    },
+
+    "permissions": [
+        "activeTab"
+    ]
+}
