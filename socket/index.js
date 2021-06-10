@@ -1,12 +1,17 @@
+const express = require('express');
+const app = express();
 const httpServer = require("http").createServer();
-const io = require("socket.io")(httpServer, {
 
-})
-
-io.on("connection", (socket) => {
-    socket.on('up', () => { socket.emmit("up") });
+app.get('/', (req, res) => {
+    res.send("Api rolling");
 });
 
-httpServer.listen(8080);
+app.get('/up', (req, res) => {
+    const io = require("socket.io")(httpServer, {
 
-console.log("Its running");
+    })
+});
+
+app.listen(8080);
+
+console.log("Express server rolling...")
