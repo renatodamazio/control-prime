@@ -5,21 +5,24 @@ import ControlNaviation from './control-navigation/ControlNaviation';
 import ControlOptions from './control-options/ControlOptions';
 import QuickMenu from './quick-menu/QuickMenu';
 import SearchBar from './search-bar/SearchBar';
+import io from 'socket.io-client';
+const endPoint = 'http://localhost:8080/';
+const socket = io(endPoint);
 
 function App() {
   return (
     <Main>
       <header>
-        <SearchBar/>
+        <SearchBar socket={socket}/>
       </header>
       <nav>
-        <QuickMenu/>
+        <QuickMenu socket={socket}/>
       </nav>
       <section>
-        <ControlNaviation/>
+        <ControlNaviation socket={socket}/>
       </section>
       <footer>
-        <ControlOptions/>
+        <ControlOptions socket={socket}/>
       </footer>
     </Main>
   );

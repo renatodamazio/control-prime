@@ -8,7 +8,7 @@ const port_listen = app.listen(port_number);
 
 const io = require('socket.io')(port_listen, {
     cors: {
-        origin: 'http://127.0.0.1:5500'
+        origin: '*'
     }
 });
 
@@ -17,10 +17,12 @@ app.get("/", (req, res) => {
 });
 
 io.on('connection', (socket) => {
-    console.log("a user connected.");
+    socket.on("bus-event", (command) => {
+        console.log(`Comand ${command} received`);
+        
+        io.emit("bus-command", command);
+        console.log(`Comand ${command} t`);t
 
-    socket.on("bus-event", (msg) => {
-        console.log(`here the received msg ${msg}`);
     })
 });
 

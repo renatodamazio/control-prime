@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { MainControl } from './ControlNaviationStyles';
 
-export default function ControlNaviation() {
+export default function ControlNaviation({ socket }) {
     const [directions, setDirections] = useState([]);
 
     useEffect(() => {
@@ -23,6 +23,15 @@ export default function ControlNaviation() {
 
     }, []);
 
+    const sendCommand = (command) => {
+        console.log(command);
+        socket.emit('bus-command', command)
+    };
+
+    useEffect(() => {
+        sendCommand("up")
+    }, [])
+
     return (
         <MainControl>
             <button className="select-option">Select</button>
@@ -30,6 +39,7 @@ export default function ControlNaviation() {
                directions.map((direction) => {
                     return (
                         <button
+                            onClick={() => { sendCommand(direction.id)}}
                             className={direction.id} 
                             name={direction.name} 
                             id={direction.id} 
