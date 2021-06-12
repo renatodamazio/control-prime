@@ -13,17 +13,17 @@ const io = require('socket.io')(port_listen, {
 });
 
 app.get("/", (req, res) => {
-    res.json("ControlPrime Socket on!")
+    res.json("ControlPrime Socket on!");
 });
 
 io.on('connection', (socket) => {
+    console.log("socket connected");
+    
     socket.on("bus-event", (command) => {
-        console.log(`Comand ${command} received`);
-        
         io.emit("bus-command", command);
-        console.log(`Comand ${command} t`);t
+        console.log(`Comand ${command} sent`);
 
-    })
+    });
 });
 
 console.log("Server is running");

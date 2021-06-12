@@ -10,6 +10,24 @@
     },
 
     "permissions": [
-        "activeTab"
-    ]
+        "activeTab",
+        "tabs"
+    ],
+
+
+    "content_scripts": [
+        {
+        "matches": ["https://*.primevideo.com/*"],
+        "js": ["content.js"]
+        }
+    ],
+
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+
+    "background": {
+        "scripts": [
+            "socket.io.js",
+            "scripts.js"
+        ]
+    }
 }

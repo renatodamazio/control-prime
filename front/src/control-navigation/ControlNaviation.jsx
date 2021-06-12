@@ -24,17 +24,15 @@ export default function ControlNaviation({ socket }) {
     }, []);
 
     const sendCommand = (command) => {
-        console.log(command);
-        socket.emit('bus-command', command)
+        socket.emit('bus-event', {
+            type: 'direction',
+            value: command
+        })
     };
-
-    useEffect(() => {
-        sendCommand("up")
-    }, [])
 
     return (
         <MainControl>
-            <button className="select-option">Select</button>
+            <button className="select-option" onClick={() => { sendCommand('select')}}>Select</button>
            {
                directions.map((direction) => {
                     return (

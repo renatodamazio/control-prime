@@ -5,16 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Extention</title>
-    <script src="https://cdn.socket.io/4.1.1/socket.io.min.js" integrity="sha384-cdrFIqe3RasCMNE0jeFG9xJHog/tgOVC1E9Lzve8LQN1g5WUHo0Kvk1mawWjxX7a" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Pronto para receber o sinal.</h1>
-    <script>
-        const socket = io('http://localhost:8080/');
-        console.log("socket received")
-        socket.on("bus-command", function(command) {
-            console.log(command)
-        })
-    </script>
+    <h1>received sinal <i id="print-sinal-here">none</i></h1>
 </body>
 </html>
