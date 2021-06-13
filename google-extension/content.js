@@ -1,8 +1,34 @@
 const resultListItemActiveStyle = `
     .control-prime-active-item {
-        outline: 2px solid blue;
-        box-shadow: 0px 0px 4px #fff;
-        transform: scale(1.2deg);
+        z-index: 9;
+        padding: 2px;
+        position: relative;
+    }
+
+    .jxBPRE {
+        overflow: initial;
+    }
+
+
+    .control-prime-active-item:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: #00dcff;
+        top: 5px;
+        left: 0;
+        position: absolute;
+        z-index: 99;
+        filter: opacity(0.5);
+    }
+
+
+    .control-prime-active-item > div:nth-child(1) {
+        outline: 2px solid #00dcff;
+        box-shadow: 0px 0px 4px #00dcff;
+        transform: scale(1.1);
+        margin-top: 10px;
+        max-height: 184px;
     }
 `;
 
@@ -50,6 +76,32 @@ const handleObjects = function() {
     document.body.appendChild(scripts);
 };
 
+const handleHoverObjects = function() {
+    const functions = `
+            const hoverbale = setInterval(function() {
+                const card = document.querySelectorAll('.control-prime-active-item');
+                if (card.length) {
+                    const handler = Object.keys(card[0]).forEach(function(item) {
+                        return item.indexOf("__reactEventHandlers") >= 0;
+                    });
+
+                    try {
+                        if (handler) {
+                            card[handler].onMouseEnter();
+                        }
+                    } catch(err) {
+                        console.log('')
+                    };
+                } else {
+                }
+            }, 1000);
+    `;
+
+    const scripts = document.createElement('script');
+    scripts.innerHTML = functions;
+    document.body.appendChild(scripts)
+};
+
 const mainClassItem = function() {
     const classList = ['.dv-node-dp-seasons.active ul li', '.av-hover-wrapper > div', '.tst-card-wrapper.tst-hoverable-card', '.js-node-episode-container'];
     
@@ -85,6 +137,7 @@ document.body.onload = function() {
         }
 
         handleObjects();
+        handleHoverObjects();
     }
 }
 
@@ -169,9 +222,9 @@ const getRequest = function(request) {
         button.classList.add('virtual-trigger-open');
 
         setTimeout(function() {
-                const subtitles = document.querySelectorAll(".subtitles .checkbox");
+            const subtitles = document.querySelectorAll(".subtitles .checkbox");
 
-                subtitles.forEach(function(subtitle, index) {
+            subtitles.forEach(function(subtitle, index) {
 
                 const text = subtitle.querySelectorAll('.text')[0].innerText;
 

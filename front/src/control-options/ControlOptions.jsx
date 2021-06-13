@@ -31,7 +31,7 @@ export default function ControlOptions({ socket }) {
         setSubtitles([
             {
                 type: 'subtitle',
-                value: 'Português'
+                value: 'Português (Brasil)'
             },
             {
                 type: 'subtitle',
