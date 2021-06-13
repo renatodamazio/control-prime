@@ -37,8 +37,8 @@ export default function QuickMenu({ socket }) {
             id: 'full',
             active: true
         }, {
-            title: 'begin',
-            id: 'Watch from begin',
+            title: 'Watch from begin',
+            id: 'begin',
             active: true
         }];
 
