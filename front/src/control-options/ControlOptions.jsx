@@ -112,6 +112,10 @@ export default function ControlOptions({ socket }) {
                     })
                 }
             </select>
+
+            <button onClick={()=> { sendCommand('seasons', 'video-control') }}>
+                Seasons
+            </button>
         </div>
     )
 }

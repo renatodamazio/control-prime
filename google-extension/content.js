@@ -51,11 +51,11 @@ const handleObjects = function() {
 };
 
 const mainClassItem = function() {
-    const classList = ['.av-hover-wrapper > div', '.tst-card-wrapper.tst-hoverable-card', '.js-node-episode-container'];
+    const classList = ['.dv-node-dp-seasons.active ul li', '.av-hover-wrapper > div', '.tst-card-wrapper.tst-hoverable-card', '.js-node-episode-container'];
     
     const mainClass = classList.filter(function(className){ 
         if(document.querySelectorAll(className).length) {
-            return className 
+            return className;
         } 
     });
 
@@ -238,13 +238,19 @@ const getRequest = function(request) {
         };
 
         if (value == 'select') {
-            const classNames = ['.tst-packshot', '.dvui-packshot', '.dv-episode-playback-title'];
+            const classNames = ['._1NNx6V', '.tst-packshot', '.dvui-packshot', '.dv-episode-playback-title'];
 
             classNames.forEach(function(className) {
                 
-                const findClass = resultList[activeItemPosition].querySelectorAll(className)
+                const findClass = resultList[activeItemPosition].querySelectorAll(className);
 
                 if (findClass.length) {
+                    
+                    if(findClass[0].getAttribute('href')) {
+                        findClass[0].click();
+                        return;
+                    }
+                    
                     findClass[0].querySelectorAll('a')[0].click();
                 }
             })
@@ -279,6 +285,21 @@ const getRequest = function(request) {
         if (value == 'right') {
             if (activeItemPosition < resultList.length -1) {
                 moveSelectedItem(activeItemPosition+=1);
+            }
+        };
+
+        if (value == 'seasons') {
+            const seasonsList = document.querySelectorAll('.dv-node-dp-seasons');
+            const seasonSelector = document.getElementById('av-droplist-av-atf-season-selector');
+            window.scrollTo(0, 0);
+            
+            if (seasonSelector.checked) {
+                seasonSelector.click();
+                seasonsList[0].classList.remove('active');
+                return;
+            } else {
+                seasonSelector.click();
+                seasonsList[0].classList.add('active');
             }
         };
     }
