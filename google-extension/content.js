@@ -282,6 +282,10 @@ const getRequest = function(request) {
             window.history.back();
         };
 
+        if (value == 'fullscreen') {
+            document.querySelectorAll(".fullscreenButton")[0].click();
+        };
+
         if (value == 'prev') {
             window.history.go('-1');
         };

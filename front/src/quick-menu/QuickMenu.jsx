@@ -32,6 +32,10 @@ export default function QuickMenu({ socket }) {
             title: 'Pause',
             id: 'pause',
             active: false
+        }, {
+            title: 'Fullscreen',
+            id: 'fullscreen',
+            active: true
         }];
 
         setNavigations(options);
