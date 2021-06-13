@@ -9,6 +9,14 @@ export default function QuickMenu({ socket }) {
             id: 'home',
             active: true,
         }, {
+            title: 'Back',
+            id: 'back',
+            active: true
+        }, {
+            title: 'Prev',
+            id: 'prev',
+            active: true
+        }, {
             title: 'Close',
             id: 'close',
             active: true

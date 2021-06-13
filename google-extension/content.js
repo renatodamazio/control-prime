@@ -8,6 +8,7 @@ const resultListItemActiveStyle = `
 
 let activeItemPosition = 0;
 const resultListItemActive = 'control-prime-active-item';
+const resultListEpisode = 'js-node-episode-container';
 
 const existCarousel = function(element) {
     if(!element) return false;
@@ -50,7 +51,7 @@ const handleObjects = function() {
 };
 
 const mainClassItem = function() {
-    const classList = ['.av-hover-wrapper > div', '.tst-card-wrapper.tst-hoverable-card'];
+    const classList = ['.av-hover-wrapper > div', '.tst-card-wrapper.tst-hoverable-card', '.js-node-episode-container'];
     
     const mainClass = classList.filter(function(className){ 
         if(document.querySelectorAll(className).length) {
@@ -111,7 +112,7 @@ const getElementPosY = function(element) {
 }
 
 const scrollPageByElement = function(element) {
-    window.scrollTo(0, getElementPosY(element) - 72);
+    window.scrollTo(0, getElementPosY(element) - 142);
 }
 
 const getRequest = function(request) {
@@ -128,6 +129,7 @@ const getRequest = function(request) {
 
     const moveSelectedItem = function(index) {
         const olderClass = document.querySelectorAll(`.${resultListItemActive}`);
+
         if (olderClass.length) {
             olderClass[0].classList.remove(resultListItemActive);
         };
@@ -193,8 +195,6 @@ const getRequest = function(request) {
 
                 const text = audio.querySelectorAll('.text')[0].innerText;
 
-                console.log(text, value);
-
                 if (text == value) {
                     document.querySelectorAll(".audio .checkbox")[index].click();
                     return;
@@ -225,12 +225,20 @@ const getRequest = function(request) {
             }
         };
 
-        if (value == 'close') {
+        if (value == 'back') {
             window.history.back();
         };
 
+        if (value == 'prev') {
+            window.history.go('-1');
+        };
+
+        if (value == 'close') {
+            location.reload();
+        };
+
         if (value == 'select') {
-            const classNames = ['.tst-packshot', '.dvui-packshot'];
+            const classNames = ['.tst-packshot', '.dvui-packshot', '.dv-episode-playback-title'];
 
             classNames.forEach(function(className) {
                 
@@ -272,7 +280,7 @@ const getRequest = function(request) {
             if (activeItemPosition < resultList.length -1) {
                 moveSelectedItem(activeItemPosition+=1);
             }
-        }
+        };
     }
 }
 

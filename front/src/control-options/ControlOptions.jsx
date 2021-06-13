@@ -50,9 +50,10 @@ export default function ControlOptions({ socket }) {
                 type: 'audio',
                 value: 'Português'
             },
+            
             {
                 type: 'audio',
-                value: 'EnglishCC'
+                value: 'English'
             }
         ])
     }, [])
