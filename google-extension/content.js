@@ -283,7 +283,15 @@ const getRequest = function(request) {
         };
 
         if (value == 'full') {
-            document.querySelectorAll(".fullscreenButton")[0].click()
+            let video = Videos();
+            let index = video.length - 1;
+            video[index].requestFullscreen();
+        };
+
+        if (value == 'exit-full') {
+            let video = Videos();
+            let index = video.length - 1;
+            video[index].exitFullscreen();
         };
 
         if (value == 'prev') {
@@ -363,10 +371,11 @@ const getRequest = function(request) {
         if (value == 'begin') {
             let video = Videos();
             let index = video.length - 1;
-    
+            video[index].pause()
+
             video[index].currentTime = 0;
-            video[index].pause();
-            video[index].play();
+
+            setTimeout(function(){ video[index].play() }, 120);
         }
     }
 }
