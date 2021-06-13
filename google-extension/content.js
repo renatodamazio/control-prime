@@ -282,8 +282,8 @@ const getRequest = function(request) {
             window.history.back();
         };
 
-        if (value == 'fullscreen') {
-            document.querySelectorAll(".fullscreenButton")[0].click();
+        if (value == 'full') {
+            document.querySelectorAll(".fullscreenButton")[0].click()
         };
 
         if (value == 'prev') {
@@ -359,6 +359,15 @@ const getRequest = function(request) {
                 seasonsList[0].classList.add('active');
             }
         };
+
+        if (value == 'begin') {
+            let video = Videos();
+            let index = video.length - 1;
+    
+            video[index].currentTime = 0;
+            video[index].pause();
+            video[index].play();
+        }
     }
 }
 

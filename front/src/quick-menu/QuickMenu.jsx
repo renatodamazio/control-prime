@@ -34,7 +34,11 @@ export default function QuickMenu({ socket }) {
             active: false
         }, {
             title: 'Fullscreen',
-            id: 'fullscreen',
+            id: 'full',
+            active: true
+        }, {
+            title: 'begin',
+            id: 'Watch from begin',
             active: true
         }];
 
