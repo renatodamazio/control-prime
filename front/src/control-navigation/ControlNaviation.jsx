@@ -31,22 +31,29 @@ export default function ControlNaviation({ socket }) {
     };
 
     return (
-        <MainControl>
-            <button className="select-option" onClick={() => { sendCommand('select')}}>Select</button>
-           {
-               directions.map((direction) => {
-                    return (
-                        <button
-                            onClick={() => { sendCommand(direction.id)}}
-                            className={direction.id} 
-                            name={direction.name} 
-                            id={direction.id} 
-                            key={direction.id}>
-                            {direction.title}
-                        </button>
-                    )  
-               })
-           }
-        </MainControl>
+        <>
+                        
+                        
+            <button onClick={() => { sendCommand('prev')}}>Prev</button>
+            <MainControl>
+                <button className="select-option" onClick={() => { sendCommand('select')}}>Select</button>
+            {
+                directions.map((direction) => {
+                        return (
+                            <button
+                                onClick={() => { sendCommand(direction.id)}}
+                                className={direction.id} 
+                                name={direction.name} 
+                                id={direction.id} 
+                                key={direction.id}>
+                                {direction.title}
+                            </button>
+                        )  
+                })
+            }
+
+            </MainControl>
+            <button onClick={() => { sendCommand('next')}}>Next</button>
+        </>
     )
 }

@@ -20,7 +20,7 @@ export default function SearchBar({ socket }) {
             <input 
                 type="search" 
                 id="search" 
-                autofocus="true"
+                autoFocus={true}
                 name="search"
                 onInput={(el) => { searchTerm(el.target)}}
                 placeholder="Search by ..."/>

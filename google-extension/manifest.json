@@ -23,11 +23,9 @@
     ],
 
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    
 
     "background": {
-        "scripts": [
-            "socket.io.js",
-            "scripts.js"
-        ]
+        "page": "background.html"
     }
 }
