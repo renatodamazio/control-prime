@@ -1,4 +1,4 @@
-const socket = io('http://localhost:8080/');
+const socket = io('https://control-prime-server.herokuapp.com/');
 
 socket.on("bus-command", function(command) {
     chrome.tabs.query({active: true, currentWindow: true},function(tabs) {

@@ -6,7 +6,7 @@ import ControlOptions from './control-options/ControlOptions';
 import QuickMenu from './quick-menu/QuickMenu';
 import SearchBar from './search-bar/SearchBar';
 import io from 'socket.io-client';
-const endPoint = 'http://localhost:8080/';
+const endPoint = 'https://control-prime-server.herokuapp.com/';
 const socket = io(endPoint);
 
 function App() {
